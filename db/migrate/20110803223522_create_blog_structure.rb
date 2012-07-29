@@ -2,8 +2,22 @@ class CreateBlogStructure < ActiveRecord::Migration
 
   def up
     create_table Refinery::Blog::Post.table_name, :id => true do |t|
-      t.string :title
-      t.text :body
+      t.string  :title
+      t.string  :location
+      t.string  :name
+      t.integer :rating
+      t.text    :body
+      t.string  :city
+      t.string  :st
+      t.string  :zips
+      t.string  :cityst
+      t.string  :county
+      t.string  :otherloc
+      t.string  :lang
+      t.boolean :pub
+      t.boolean :lookat
+      t.integer :ordernum
+      t.text    :notes
       t.boolean :draft
       t.datetime :published_at
       t.timestamps
@@ -24,7 +38,8 @@ class CreateBlogStructure < ActiveRecord::Migration
     add_index Refinery::Blog::Comment.table_name, :id
 
     create_table Refinery::Blog::Category.table_name, :id => true do |t|
-      t.string :title
+      t.string  :title
+      t.integer :ordernum
       t.timestamps
     end
 
